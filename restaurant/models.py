@@ -1,7 +1,8 @@
 from django.db import models
 from django.contrib.auth.models import User
+from djmoney.models.fields import MoneyField
 
-MEAL_CATEGORY = (
+CATEGORIES = (
     ('starters', 'Starters'),
     ('salads', 'Salads'),
     ('main_dishes', 'Main Dishes'),
@@ -15,10 +16,10 @@ STATUS = (
 
 
 class Menu(models.Model):
-    meal = models.CharField(max_length=100, unique=True)
-    description = models.CharField(max_length=300)
-    price = models.DecimalField(max_digits=8, decimal_places=2)
-    meal_type = models.CharField(max_length=80, choices=MEAL_CATEGORY)
+    item = models.CharField(max_length=100, unique=True)
+    ingredients = models.TextField()
+    price = MoneyField(max_digits=8, decimal_places=2, default_currency='GBP')
+    category = models.CharField(max_length=80, choices=CATEGORIES)
     chef = models.ForeignKey(
         User, on_delete=models.SET_NULL, null=True
     )  # The chef can be deleted but the menu the chef created won't be deleted
@@ -27,4 +28,4 @@ class Menu(models.Model):
     date_updated = models.DateTimeField(auto_now=True)
 
     def __str__(self) -> str:
-        return self.meal
+        return self.item
