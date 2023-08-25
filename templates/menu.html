@@ -7,20 +7,23 @@
 	</head>
 	<body>
 		<h1>Menu</h1>
+        <section>
 		{% for category in categories %}
-		<section>
-			<h2>{{category.1}}</h2>
-			{% for val in menu_list %} {% if val.category == category.0 %}
-			<h3>{{val.item}}</h3>
-			<h3>Price: {{val.price}}</h3>
-			<h3>Ingredients: {{val.ingredients}}</h3>
-			<h3>Chef: {{val.chef}}</h3>
-			{% if val.status %}
-			<h3>Availablity: Available</h3>
-			{% else %}
-			<h3>Availablity: Unvailable</h3>
-			{% endif %} {% endif %} {% endfor %}
-		</section>
-		{% endfor %}
+            <h2>{{category.1}}</h2>
+            {% for row in menu_list %} 
+                {% if row.category == category.0 %}
+                    <h3>{{row.item}}</h3>
+                    <h3>Price: {{row.price}}</h3>
+                    <h3>Ingredients: {{row.ingredients}}</h3>
+                    <h3>Chef: {{row.chef}}</h3>
+                    {% if row.status %}
+                        <h3>Availability: Available</h3>
+                    {% else %}
+                        <h3>Availability: Unvailable</h3>
+                    {% endif %}
+                {% endif %} 
+            {% endfor %}
+        {% endfor %}
+        </section>
 	</body>
 </html>
