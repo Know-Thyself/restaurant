@@ -1,5 +1,13 @@
 {% extends "base.html" %} {% block content %}
-    <h1>{{ menu.item }}</h1>
-    <h3>Price: {{ menu.price }}</h3>
-    <h3>Ingredients: {{ menu.ingredients }}</h3>
+    <section class="container">
+        <h3>{{menu.item}}</h3>
+        <p class="text__secondary">Price: <span class="badge bg-primary rounded-pill">{{ menu.price }}</span></p>
+        <p class="text__secondary">Ingredients: {{menu.ingredients}}</p>
+        {% if menu.status %}
+            <p class="text__secondary">Availability: Available</p>
+        {% else %}
+            <p class="text__secondary">Availability: Unvailable</p>
+        {% endif %}
+        <p class="text__secondary">Chef: {{menu.chef}}</p>
+    </section>
 {% endblock %}
