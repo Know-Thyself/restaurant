@@ -1,33 +1,25 @@
-<!DOCTYPE html>
-<html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>Restaurant Menu</title>
-	</head>
-	<body>
-		<h1>Menu</h1>
-        <section>
-		{% for category in categories %}
-            <h2>{{category.1}}</h2>
-            {% for row in menu_list %} 
-                {% if row.category == category.0 %}
+{% extends "base.html" %} {% block content %}
+    <h1 class="header">Restaurant Menu</h1>
+    <section class="container">
+    {% for category in categories %}
+        <h2 class="category">{{category.1}}</h2>
+        {% for row in menu_list %} 
+            {% if row.category == category.0 %}
+                <div class="menu__item">
                     <a href="{% url 'menu_item' row.url %}">
-                        <div>
-                            <h3>Menu item: {{row.item}}</h3>
-                            <h3>Price: {{row.price}}</h3>
-                            <h3>Ingredients: {{row.ingredients}}</h3>
-                            {% if row.status %}
-                                <h3>Availability: Available</h3>
-                            {% else %}
-                                <h3>Availability: Unvailable</h3>
-                            {% endif %}
-                            <h3>Chef: {{row.chef}}</h3>
-                        </div>
+                        <h3>{{row.item}}</h3>
                     </a>
-                {% endif %} 
-            {% endfor %}
+                    <p class="text__secondary">Price: <span class="badge bg-primary rounded-pill">{{ row.price }}</span></p>
+                    <p class="text__secondary">Ingredients: {{row.ingredients}}</p>
+                    {% if row.status %}
+                        <p class="text__secondary">Availability: Available</p>
+                    {% else %}
+                        <p class="text__secondary">Availability: Unvailable</p>
+                    {% endif %}
+                    <p class="text__secondary">Chef: {{row.chef}}</p>
+                </div>
+            {% endif %} 
         {% endfor %}
-        </section>
-	</body>
-</html>
+    {% endfor %}
+    </section>
+{% endblock %}

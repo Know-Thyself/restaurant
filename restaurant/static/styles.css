@@ -1,0 +1,33 @@
+.header {
+	font-size: 2rem;
+	text-align: center;
+	padding: 0.5rem 0;
+}
+
+.container {
+	display: flex;
+	flex-direction: column;
+	gap: 1rem;
+}
+
+.category {
+	font-size: 1.5rem;
+	padding: 1rem;
+	background-color: rgb(149, 212, 214);
+}
+
+.menu__item {
+	padding-left: 3rem;
+}
+
+.menu__item a {
+	text-decoration: none;
+}
+
+.text__secondary {
+	font-size: 1.15rem;
+}
+
+.text__secondary span {
+	margin-left: 0.4rem;
+}
