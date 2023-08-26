@@ -26,6 +26,7 @@ class Menu(models.Model):
     status = models.IntegerField(choices=STATUS, default=1)
     date_created = models.DateTimeField(auto_now_add=True)
     date_updated = models.DateTimeField(auto_now=True)
+    url = models.SlugField()
 
     def __str__(self) -> str:
         return self.item

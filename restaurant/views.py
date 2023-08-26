@@ -17,3 +17,5 @@ class MenuList(generic.ListView):
 class MenuItemDetail(generic.DetailView):
     model = Menu
     template_name = 'menu_item.html'
+    slug_field = 'url'
+    slug_url_kwarg = 'url'
