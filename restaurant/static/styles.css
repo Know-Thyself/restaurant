@@ -24,9 +24,21 @@
 	text-decoration: none;
 }
 
-.menu__item img, .container img {
-	height: 300px;
-	width: auto;
+.menu__item img {
+	width: 300px;
+	height: auto;
+}
+
+.item__detail__wrapper {
+	width: 50%;
+	margin: auto;
+	background-color: rgb(239, 253, 227);
+}
+
+.detail__img {
+	width: 400px;
+	height: auto;
+	margin: auto;
 }
 
 .text__secondary {
