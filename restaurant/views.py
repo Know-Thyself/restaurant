@@ -19,3 +19,5 @@ class MenuItemDetail(generic.DetailView):
     template_name = 'menu_item.html'
     slug_field = 'url'
     slug_url_kwarg = 'url'
+
+

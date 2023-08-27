@@ -20,6 +20,7 @@ class Menu(models.Model):
     ingredients = models.TextField()
     price = MoneyField(max_digits=8, decimal_places=2, default_currency='GBP')
     category = models.CharField(max_length=80, choices=CATEGORIES)
+    image = models.ImageField(upload_to='assets')
     chef = models.ForeignKey(
         User, on_delete=models.SET_NULL, null=True
     )  # The chef can be deleted but the menu the chef created won't be deleted

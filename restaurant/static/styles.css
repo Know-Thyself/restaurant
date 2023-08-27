@@ -24,6 +24,11 @@
 	text-decoration: none;
 }
 
+.menu__item img, .container img {
+	height: 300px;
+	width: auto;
+}
+
 .text__secondary {
 	font-size: 1.15rem;
 }

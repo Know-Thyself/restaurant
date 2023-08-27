@@ -9,6 +9,7 @@
                     <a href="{% url 'menu_item' row.url %}">
                         <h3>{{row.item}}</h3>
                     </a>
+                    <img src="{{row.image}}" alt="{{row.item}}"/>
                     <p class="text__secondary">Price: <span class="badge bg-primary rounded-pill">{{ row.price }}</span></p>
                     <p class="text__secondary">Ingredients: {{row.ingredients}}</p>
                     {% if row.status %}
